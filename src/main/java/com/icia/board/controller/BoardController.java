@@ -76,9 +76,10 @@ public class BoardController {
     }
 
     @GetMapping("/{id}")
-    public String findById(@PathVariable Long id, @RequestParam("page") int page,
-                           @RequestParam("type") String type,
-                           @RequestParam("q") String q,
+    public String findById(@PathVariable Long id,
+                           @RequestParam(value = "page", required = false, defaultValue = "") String page,
+                           @RequestParam(value = "type", required = false, defaultValue = "") String type,
+                           @RequestParam(value = "q", required = false, defaultValue = "") String q,
                            Model model) {
         boardService.updateHits(id);
         model.addAttribute("page", page);

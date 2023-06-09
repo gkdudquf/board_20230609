@@ -131,7 +131,13 @@
         const page = [[${page}]];
         const type = [[${type}]];
         const q = [[${q}]];
-        location.href = "/board?page=" + page + "&type=" + type + "&q=" + q;
+
+        if (page == 0) {
+            location.href = "/board/";
+        } else {
+            location.href = "/board?page=" + page + "&type=" + type + "&q=" + q;
+        }
+
     }
 
     const req = (type) => {
